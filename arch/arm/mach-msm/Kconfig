@@ -3494,11 +3494,14 @@ config MSM_AVS_HW
 	  fine tune the voltages based on the feedback from the ring
 	  oscillators.
 
-config MSM_HW3D
-	tristate "MSM Hardware 3D Register Driver"
+ config MSM_HOTPLUG
+	bool "MSM hotplug driver"
+	depends on HOTPLUG_CPU
+	default n
 	help
-	  Provides access to registers needed by the userspace OpenGL|ES
-	  library.
+	  The MSM hotplug driver controls on-/offlining of additional cores based
+	  on current cpu load.
+
 
 config MSM_ADSP
 	depends on (ARCH_MSM7X01A || ARCH_MSM7X25 || ARCH_MSM7X27)
